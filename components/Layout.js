@@ -6,10 +6,14 @@ import {
   Stack,
   Text,
   Button,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+
 const Layout = ({ children }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div>
       <Head>
@@ -17,7 +21,7 @@ const Layout = ({ children }) => {
       </Head>
       <Box>
         <Flex
-          bg={useColorModeValue("white","gray.600")}
+          bg={useColorModeValue("white", "gray.600")}
           minH={"60px"}
           py={{ base: 2 }}
           px={{ base: 4 }}
@@ -26,14 +30,11 @@ const Layout = ({ children }) => {
           borderColor={useColorModeValue("gray.200", "gray.900")}
           align={"center"}
         >
-          <Flex
-            flex={{ base: 1 }}
-            justify={{ base: "center", md: "start" }}
-          >
+          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
             <Text
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
-              align={{base: "center"}}
+              align={{ base: "center" }}
             >
               Logo
             </Text>
@@ -43,6 +44,9 @@ const Layout = ({ children }) => {
               direction={"row"}
               spacing={6}
             >
+              <Button onClick={toggleColorMode}>
+                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              </Button>
               <Button
                 as={"a"}
                 fontSize={"sm"}
@@ -57,7 +61,7 @@ const Layout = ({ children }) => {
                 color={"white"}
                 bg={"pink.400"}
                 href={""}
-                _hover={{bg: "pink.300"}}
+                _hover={{ bg: "pink.300" }}
               >
                 Sign Out
               </Button>
@@ -68,7 +72,7 @@ const Layout = ({ children }) => {
       {children}
       <Box>
         <Flex
-          bg={useColorModeValue("white","gray.600")}
+          bg={useColorModeValue("white", "gray.600")}
           minH={"60px"}
           py={{ base: 2 }}
           px={{ base: 4 }}
@@ -79,8 +83,8 @@ const Layout = ({ children }) => {
         >
           <Flex
             flex={{ base: 1 }}
-            justify={{ base: "center"}}
-            alignItems={{base: "center"}}
+            justify={{ base: "center" }}
+            alignItems={{ base: "center" }}
           >
             <Text
               fontFamily={"heading"}
