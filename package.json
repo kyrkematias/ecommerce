@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4"
+    "@babel/preset-env": "^7.21.4",
+    "terser-brunch": "^4.1.0"
   }
 }
